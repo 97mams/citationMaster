@@ -1,6 +1,6 @@
 export default function Loading() {
     return (
-        <p>
+        <p className="m-auto">
             Loading...
         </p>
     )
