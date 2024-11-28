@@ -1,7 +1,10 @@
 import { Card } from "../card";
-
+import Link from "next/link";
 export function Header() {
-    return (<Card>
-        <p className="p-4">CitationMaster</p>
+    return (<Card className="p-4">
+        <Link
+            href={"/"}>
+            CitationMaster
+        </Link>
     </Card>)
 }

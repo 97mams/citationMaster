@@ -3,10 +3,11 @@ import { GeistSans } from "geist/font/sans"
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
+import { Card } from "@/card";
 
 
 export const metadata: Metadata = {
-  title: "Mamisoa Ratsimbarison",
+  title: "CitationMaster",
   description: "Web developper junior",
 };
 
@@ -18,11 +19,9 @@ export default async function RootLayout({
 
   return (
     <html lang="fr" className="h-full">
-      <body className={cn(GeistSans.variable, "font-sans h-full bg-background text-foreground max-w-lg m-auto p-4")}>
-        <div className="flex flex-col gap-4">
-          <Header />
-          {children}
-        </div>
+      <body className={cn(GeistSans.variable, "font-sans h-screen bg-background text-foreground max-w-lg flex flex-col gap-4 m-auto p-4")}>
+        <Header />
+        {children}
       </body>
     </html>
   );

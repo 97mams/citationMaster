@@ -1,4 +1,9 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/card"
+import { Card, CardHeader, CardTitle, CardContent } from "@/card";
+import { buttonVariants } from "@/components/ui/button";
+import { prisma } from "@/lib/prisma";
+import { DeleteCitationButton } from "@/app/delete-citation-button";
+import Link from "next/link";
+import CitationForm from "@/app/citation-form";
 
 export default async function Page(props: {
     params: Promise<{
@@ -7,17 +12,17 @@ export default async function Page(props: {
 }) {
 
     const params = await props.params
+    const id = Number(params.citationId)
+
+    const citationOne = await prisma.citation.findUnique({
+        where: {
+            id,
+        }
+    })
+    console.log(citationOne);
+
 
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle>
-                    Citation
-                </CardTitle>
-            </CardHeader>
-            <CardContent>
-                numero: {JSON.stringify(params.citationId)}
-            </CardContent>
-        </Card>
+        <CitationForm citation={citationOne} />
     )
-}
+} 
